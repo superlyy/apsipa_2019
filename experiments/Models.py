@@ -162,16 +162,3 @@ class Models:
                                         metrics=['accuracy'])
 
         return model
-
-
-    ###---------------------------------------------------------------------
-    ###temporary funcs for sean
-    def export_expert_weights(self):
-        self.build_moer()
-        self.moer.load_weights('./weights/moer_559.hdf5')
-        for feature_type in self.feature_types:
-            temp_model = Model(inputs=self.moer.get_layer(
-                                   'input_{}'.format(feature_type)).output,
-                               outputs=self.moer.get_layer(
-                                   'dense_{}'.format(feature_type)).output)
-            temp_model.save_weights('./weights/{}_moer_559.hdf5'.format(feature_type))

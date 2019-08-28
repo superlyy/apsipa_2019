@@ -1,7 +1,3 @@
-# auto reload modules
-%reload_ext autoreload
-%autoreload 2
-
 import sys
 sys.path.append('../fma_small/')
 
